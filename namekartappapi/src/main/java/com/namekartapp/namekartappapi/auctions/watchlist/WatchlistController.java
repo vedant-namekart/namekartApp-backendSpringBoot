@@ -1,8 +1,6 @@
 package com.namekartapp.namekartappapi.auctions.watchlist;
 
 import com.namekartapp.namekartappapi.Auction;
-import com.namekartapp.namekartappapi.Domain;
-import org.aspectj.weaver.ast.Literal;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

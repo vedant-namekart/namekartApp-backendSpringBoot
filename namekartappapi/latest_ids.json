@@ -1,14 +1,18 @@
 {
+  "live~godaddy~highlights": {
+    "lastUpdated": "2025-05-16T04:17:52",
+    "lastId": 16
+  },
   "notifications~BidActivity~notifications": {
     "lastUpdated": "2025-05-13T18:12:13",
     "lastId": 3
   },
   "live~godaddy~auctions": {
-    "lastUpdated": "2025-05-14T15:45:10",
-    "lastId": 24
+    "lastUpdated": "2025-05-15T23:13:28",
+    "lastId": 30
   },
   "notifications~BidActivity~auctions": {
-    "lastUpdated": "2025-05-13T20:20:28",
-    "lastId": 17
+    "lastUpdated": "2025-05-15T23:25:42",
+    "lastId": 18
   }
 }

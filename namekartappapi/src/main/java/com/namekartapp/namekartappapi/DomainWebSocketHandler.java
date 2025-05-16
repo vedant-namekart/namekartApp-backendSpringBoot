@@ -59,46 +59,8 @@ public class DomainWebSocketHandler extends TextWebSocketHandler {
         String userId = getUserIdFromSession(session); // Retrieve userId from session
         System.out.println("Message from user " + userId + " (sessionId: " + session.getId() + "): " + payload);
 
-        if (jsonObject.has("checkupdate")) {
-            JsonElement checkUpdateElement = jsonObject.get("checkupdate");
 
-            if (checkUpdateElement.isJsonObject()) {
-                JsonObject checkUpdateData = checkUpdateElement.getAsJsonObject();
-                Map<String, String> collections = parseCollections(checkUpdateData);
-
-                // Filter out entries where value contains "new" (indicating new app download)
-                collections = filterOutNewEntries(collections);
-
-                JsonOperations jsonOperations = new JsonOperations();
-
-                List<String> mismatchedCollections = jsonOperations.checkUpdate(collections);
-
-                // Update mismatched collections for the user
-                if (!mismatchedCollections.isEmpty()) {
-                    mismatchedCollectionsByUser.put(userId, new HashSet<>(mismatchedCollections));
-                } else {
-                    // If there are no mismatched collections, remove the user's entry
-                    mismatchedCollectionsByUser.remove(userId);
-                }
-
-                JsonObject response = new JsonObject();
-                if (!mismatchedCollections.isEmpty()) {
-                    response.addProperty("status", "mismatched");
-                    response.add("mismatchedCollections", new Gson().toJsonTree(mismatchedCollections));
-                } else {
-                    response.addProperty("status", "success");
-                    response.addProperty("message", "All datetime values match.");
-                }
-
-                sendMessageToUser(userId,response.toString());
-            } else {
-                JsonObject response = new JsonObject();
-                response.addProperty("status", "error");
-                response.addProperty("message", "Invalid 'checkupdate' data format.");
-                sendMessageToUser(userId,response.toString());
-            }
-        }
-        else if(jsonObject.has("place a bid")){
+        if(jsonObject.has("place a bid")){
             JsonObject response=new JsonObject();
             response.addProperty("status","success");
             response.addProperty("bidPlacedAmount", jsonObject.get("place a bid").toString());
