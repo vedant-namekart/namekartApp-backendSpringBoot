@@ -239,6 +239,16 @@ public class DomainWebSocketHandler extends TextWebSocketHandler {
             responseObject.addProperty("response",ProgramHelper.getSubCollectionsForPath(path).toString());
             sendMessageToUser(userId,responseObject.toString());
         }
+        else if(jsonObject.get("query").toString().contains("firebase-allsubsubcollections")){
+        JsonObject responseObject=new JsonObject();
+        String path=jsonObject.get("path").getAsString();
+            Gson gson = new Gson();
+
+            JsonElement jsonElement = gson.toJsonTree(ProgramHelper.getSubcollectionsMap(path));
+
+            responseObject.add("response",jsonElement);
+        sendMessageToUser(userId,responseObject.toString());
+    }
         else if(jsonObject.get("query").toString().contains("database-sync")){
             JsonObject responseObject=new JsonObject();
             String path=jsonObject.get("path").getAsString();

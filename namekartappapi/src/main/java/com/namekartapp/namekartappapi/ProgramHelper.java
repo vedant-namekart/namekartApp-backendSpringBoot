@@ -222,6 +222,28 @@ public class ProgramHelper {
         }
     }
 
+    public static Map<String, List<String>> getSubcollectionsMap(String baseCollection) {
+        Firestore db = FirestoreClient.getFirestore();
+        CollectionReference collectionRef = db.collection(baseCollection);
+
+        Map<String, List<String>> result = new HashMap<>();
+
+        try {
+            for (DocumentReference docRef : collectionRef.listDocuments()) {
+                List<String> subcollections = new ArrayList<>();
+                for (CollectionReference subColRef : docRef.listCollections()) {
+                    subcollections.add(subColRef.getId().trim());
+                }
+                result.put(docRef.getId(), subcollections);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+
     public static Map<String, Object> updateFirestoreByPath(
             String fullPath, String fieldPath, Object newValue
     ) {

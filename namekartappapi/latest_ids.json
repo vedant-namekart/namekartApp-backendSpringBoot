@@ -1,7 +1,23 @@
 {
+  "notifications~dfds~highlights": {
+    "lastUpdated": "2025-05-20T21:05:56",
+    "lastId": 1
+  },
+  "notifications~sess1~highlights": {
+    "lastUpdated": "2025-05-20T21:07:33",
+    "lastId": 1
+  },
   "live~godaddy~highlights": {
-    "lastUpdated": "2025-05-16T04:17:52",
-    "lastId": 16
+    "lastUpdated": "2025-05-20T16:27:29",
+    "lastId": 17
+  },
+  "notifications~happy~highlights": {
+    "lastUpdated": "2025-05-20T20:15:01",
+    "lastId": 1
+  },
+  "notifications~sess~highlights": {
+    "lastUpdated": "2025-05-20T21:07:22",
+    "lastId": 1
   },
   "notifications~BidActivity~notifications": {
     "lastUpdated": "2025-05-13T18:12:13",
@@ -11,8 +27,16 @@
     "lastUpdated": "2025-05-15T23:13:28",
     "lastId": 30
   },
+  "notifications~sess1~highlights2": {
+    "lastUpdated": "2025-05-20T21:13:47",
+    "lastId": 3
+  },
   "notifications~BidActivity~auctions": {
     "lastUpdated": "2025-05-15T23:25:42",
     "lastId": 18
+  },
+  "notifications~s2222~highlights": {
+    "lastUpdated": "2025-05-20T21:06:17",
+    "lastId": 1
   }
 }
